@@ -1,0 +1,42 @@
+﻿@model ECommerce.Models.shopping
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Checkout</h2>
+
+<div>
+    @if (Session["Cart"] == null)
+    {
+        <div class="alert alert-danger">
+            <strong>No Product Added</strong>
+        </div>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <td>Product</td>
+                    <td>Cost</td>
+                    <td>Add</td>
+                </tr>
+            </thead>
+            @foreach (var shoppping in List<> Session["Cart"])
+            {
+                <tbody>
+                    <tr>
+                        <td>@shoppping.Product</td>
+                        <td>@shoppping.Cost</td>
+                        <td>
+                            <a href="@Url.Action("Add","AddToCart", new { ProductId= shoppping.ProductID , url="Checkout"})">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            }
+
+        </table>
+    }
+</div>

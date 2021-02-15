@@ -1,0 +1,15 @@
+﻿@model ECommerce.Models.users
+@{
+    ViewBag.Title = "RoleList";
+}
+
+<h2>RoleList</h2>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.RoleList, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownList("Roles", Model.RoleList, "Select Role")
+
+        @Html.ValidationMessageFor(model => model.RoleList, "", new { @class = "text-danger" })
+    </div>
+</div>

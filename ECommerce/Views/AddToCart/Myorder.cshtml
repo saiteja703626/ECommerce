@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ECommerce.Models.shopping>
+@{
+    ViewBag.Title = "Myorder";
+}
+
+<h2>Myorder</h2>
+
+@*@{
+        int sum = 0;
+    }*@
+<div id="dvContents">
+    <table class="table table-hover" width="100px">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Product Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                @*<th>Remove</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var shopping in Model)
+            {
+                <tr>
+                    <td>@shopping.ID</td>
+                    <td>@shopping.Product</td>
+                    <td>
+                        <img src="@Url.Content(shopping.Image)" width="75" height="100" />
+                    </td>
+                    <td>@shopping.Cost</td>
+                    @*<td><button id = "btn_delete"></button></td>*@
+                </tr>
+            }
+        </tbody>
+        @*@foreach (var shopping in Model)
+            {
+                sum = Convert.ToInt32(shopping.Cost) + sum;
+            }
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Total</td>
+                    <td>@sum</td>
+                </tr>
+            </tfoot>*@
+    </table>
+</div>
+@*<div>
+    @Html.ActionLink("","","")
+</div>*@

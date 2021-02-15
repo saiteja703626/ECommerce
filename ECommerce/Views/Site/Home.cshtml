@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ECommerce.Models.shopping>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="container">
+    <h2 class="text-center">Product List</h2>
+    @foreach (var shopping in Model)
+    {
+        <div class="col-md-4" style="border:2px solid black">
+            <div style="text-align:center; border-bottom:2px solid maroon">
+                <h3>@shopping.Product</h3>
+            </div>
+
+            <div>
+                <div class="col-md-8">
+                    <img src="@shopping.Image" width="150px" height="150px" />
+                </div>
+                <div class="col-md-4" style="text-align:left">
+                    <b>@Html.ActionLink(shopping.Description, "Clothing", "Site", new { id = shopping.ID }, null)</b>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="font-size: 18px; border-top: 2px solid maroon; padding:2px">
+                <b>@shopping.Cost.ToString(format: "#,##0.00 INR")</b>
+            </div>
+            <div class="col-md-12" style="text-align:right; margin-bottom: 10px; border-top:2px solid maroon; padding:2px">
+                @*<input type="button" name="AddToCart" value="Add To Cart" class="btn-btn-primary" />*@
+            </div>
+        </div>
+    }
+</div>
+
+
+
+ 

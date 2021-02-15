@@ -1,0 +1,28 @@
+﻿@model ECommerce.Models.shopping
+
+@{
+    ViewBag.Title = "Clothing";
+}
+
+<h2>@Html.DisplayFor(model=>model.Product)</h2>
+
+
+<div class="container-fluid">
+    <div class="pull-left">
+        <img src="@Url.Content(Model.Image)" style="width:300px; height:300px; border:solid" />
+    </div>
+    <div class="pull-left", style="margin-left:70px">
+        <div>
+            <h2>@Html.DisplayFor(model => model.Product)</h2>
+            <h3>Description: @Html.DisplayFor(model => model.Description)</h3>
+            <h3>Category : @Html.DisplayFor(model => model.Category)</h3>
+            <h3>Cost :@Html.DisplayFor(model => model.Cost)</h3>
+            <br />
+            <div style="margin-left:0px">
+                <a id="btn_add" href="@Url.Action("Add", "AddToCart", new { ID = Model.ID, Product = Model.Product, Image = Model.Image, Category = Model.Category, Description = Model.Description, Cost = Model.Cost })" class="btn btn-info btn-lg"style="margin-left:60px">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>Add To Cart
+                </a>
+            </div>
+        </div>
+    </div>    
+</div>
